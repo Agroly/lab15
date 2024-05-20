@@ -1,0 +1,31 @@
+﻿@model lab15.ViewModels.LoginViewModel
+
+<h2>Вход в приложение</h2>
+<form method="post" asp-controller="Account" asp-action="Login">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div>
+        <label asp-for="Email"></label><br />
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Password"></label><br />
+        <input asp-for="Password" type="password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="RememberMe"></label><br />
+        <input asp-for="RememberMe" type="checkbox" />
+    </div>
+    <div>
+        <input type="submit" value="Войти" class="btn btn-primary" />
+    </div>
+</form>
+
+<a asp-controller="Account" asp-action="Login" class="nav-link">Вход</a>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
